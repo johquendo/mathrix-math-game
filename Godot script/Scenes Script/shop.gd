@@ -3,6 +3,7 @@ extends Control
 @onready var shop: Control = $"."
 @onready var shop_panel: Panel = $SimpleUI/ShopPanel
 @onready var tool_shop_panel: Panel = $SimpleUI/ToolShopPanel
+@onready var timer: Label = $SimpleUI/TimerLabel
 
 func _ready() -> void:
 		pass
@@ -10,6 +11,7 @@ func _ready() -> void:
 		
 func _on_back_button_down() -> void:
 	shop.visible = false
+	timer.visible = false
 
 func _on_tools_button_button_down() -> void:
 	shop_panel.visible = false

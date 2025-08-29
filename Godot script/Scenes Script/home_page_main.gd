@@ -1,7 +1,8 @@
 extends Control
 
 # UI references
-@onready var control: Control = $"."
+@onready var timer: Label = $Shop/SimpleUI/TimerLabel
+@onready var control: Control = $"."  
 @onready var main: VBoxContainer = $main
 @onready var shop: Control = $Shop
 @onready var settings: Panel = $settings
@@ -17,7 +18,6 @@ extends Control
 # Tool button references
 @onready var pen_tool_button: Button = $BoardTools/PenToolButton
 @onready var text_tool_button: Button = $BoardTools/TextToolButton
-@onready var eraser_tool_button: Button = $BoardTools/EraserToolButton
 
 var whiteboard_scene = preload("res://Scenes/WhiteboardApp.tscn")
 var whiteboard_instance: Control = null
@@ -33,8 +33,6 @@ func _ready() -> void:
 		pen_tool_button.pressed.connect(_on_pen_tool_selected)
 	if text_tool_button:
 		text_tool_button.pressed.connect(_on_text_tool_selected)
-	if eraser_tool_button:
-		eraser_tool_button.pressed.connect(_on_eraser_tool_selected)
 
 	# setup whiteboard ONCE
 	call_deferred("_setup_whiteboard")
@@ -46,6 +44,7 @@ func _hide_all_panels() -> void:
 	inventory.visible = false
 	leaderboards.visible = false
 	profile.visible = false
+	timer.visible = false
 
 # --- White Board Stuff ---
 func _setup_whiteboard() -> void:
@@ -59,14 +58,12 @@ func _setup_whiteboard() -> void:
 	whiteboard_instance.position = Vector2(221, 16)
 	whiteboard_instance.size = Vector2(706, 608)
 	whiteboard_instance.mouse_filter = Control.MOUSE_FILTER_STOP
-
+	
 	if whiteboard_instance:
 		if whiteboard_instance.has_signal("pen_tool_selected"):
 			whiteboard_instance.pen_tool_selected.connect(_on_whiteboard_pen_tool_selected)
 		if whiteboard_instance.has_signal("text_tool_selected"):
 			whiteboard_instance.text_tool_selected.connect(_on_whiteboard_text_tool_selected)
-		if whiteboard_instance.has_signal("eraser_tool_selected"):
-			whiteboard_instance.eraser_tool_selected.connect(_on_whiteboard_eraser_tool_selected)
 
 # Tool selection functions that call whiteboard methods
 func _on_pen_tool_selected():
@@ -77,39 +74,24 @@ func _on_text_tool_selected():
 	if whiteboard_instance:
 		whiteboard_instance.call_deferred("_on_text_tool_selected")
 
-func _on_eraser_tool_selected():
-	if whiteboard_instance:
-		whiteboard_instance.call_deferred("_on_eraser_tool_selected")
-
 # Signal handlers for whiteboard tool changes
 func _on_whiteboard_pen_tool_selected():
 	if pen_tool_button:
 		pen_tool_button.button_pressed = true
 	if text_tool_button:
 		text_tool_button.button_pressed = false
-	if eraser_tool_button:
-		eraser_tool_button.button_pressed = false
 
 func _on_whiteboard_text_tool_selected():
 	if pen_tool_button:
 		pen_tool_button.button_pressed = false
 	if text_tool_button:
 		text_tool_button.button_pressed = true
-	if eraser_tool_button:
-		eraser_tool_button.button_pressed = false
-
-func _on_whiteboard_eraser_tool_selected():
-	if pen_tool_button:
-		pen_tool_button.button_pressed = false
-	if text_tool_button:
-		text_tool_button.button_pressed = false
-	if eraser_tool_button:
-		eraser_tool_button.button_pressed = true
 
 # --- Button Handlers with panel + whiteboard toggle ---
 func _on_shop_button_down() -> void:
 	_hide_all_panels()
 	shop.visible = true
+	timer.visible = true
 	if whiteboard_layer: whiteboard_layer.visible = false
 
 func _on_back_button_down() -> void:
@@ -163,4 +145,3 @@ func _on_p_4_button_down(): player_4.visible = true
 func _on_back_p_4_button_down(): player_4.visible = false
 func _on_p_5_button_down(): player_5.visible = true
 func _on_back_p_5_button_down(): player_5.visible = false
-#testing

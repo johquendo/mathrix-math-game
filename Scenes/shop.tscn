@@ -66,19 +66,6 @@ theme_override_fonts/normal_font = ExtResource("1_2shtd")
 theme_override_font_sizes/normal_font_size = 40
 text = "Equation Shop"
 
-[node name="TimerLabel" type="Label" parent="SimpleUI/ShopPanel"]
-layout_mode = 2
-offset_left = 448.0
-offset_top = 18.0
-offset_right = 505.0
-offset_bottom = 50.0
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_2shtd")
-theme_override_font_sizes/font_size = 39
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Back" type="Button" parent="SimpleUI/ShopPanel"]
 layout_mode = 2
 offset_left = 535.0
@@ -501,7 +488,16 @@ offset_right = 81.0
 offset_bottom = 83.0
 texture = ExtResource("8_s8dlv")
 
-[node name="BuyTool" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer"]
+[node name="CalculatorStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer/ToolPanel"]
+offset_left = 24.0
+offset_top = 113.0
+offset_right = 189.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("1_2shtd")
+theme_override_font_sizes/font_size = 40
+text = "stonks"
+
+[node name="BuyCalculator" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer"]
 layout_mode = 0
 offset_left = 420.0
 offset_top = 112.0
@@ -561,7 +557,16 @@ offset_right = 81.0
 offset_bottom = 83.0
 texture = ExtResource("9_tyrku")
 
-[node name="BuyTool" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer2"]
+[node name="DisplayCaseStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer2/ToolPanel"]
+offset_left = 24.0
+offset_top = 113.0
+offset_right = 189.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("1_2shtd")
+theme_override_font_sizes/font_size = 40
+text = "stonks"
+
+[node name="BuyDisplayCase" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer2"]
 layout_mode = 0
 offset_left = 420.0
 offset_top = 112.0
@@ -621,7 +626,16 @@ offset_right = 81.0
 offset_bottom = 83.0
 texture = ExtResource("8_s8dlv")
 
-[node name="BuyTool" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer3"]
+[node name="UpgradeMedalStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer3/ToolPanel"]
+offset_left = 24.0
+offset_top = 113.0
+offset_right = 189.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("1_2shtd")
+theme_override_font_sizes/font_size = 40
+text = "stonks"
+
+[node name="BuyUpgradeMedal" type="Button" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer3"]
 layout_mode = 0
 offset_left = 420.0
 offset_top = 112.0
@@ -630,6 +644,19 @@ offset_bottom = 163.0
 theme_override_fonts/font = ExtResource("1_2shtd")
 theme_override_font_sizes/font_size = 30
 text = "Buy"
+
+[node name="TimerLabel" type="Label" parent="SimpleUI"]
+layout_mode = 2
+offset_left = 722.0
+offset_top = 65.0
+offset_right = 779.0
+offset_bottom = 97.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_2shtd")
+theme_override_font_sizes/font_size = 39
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="SimpleUI/ShopPanel/Back" to="." method="_on_back_button_down"]
 [connection signal="pressed" from="SimpleUI/ShopPanel/ScrollContainer/VBoxContainer/ItemContainer/ButtonContainer/BuyCommon" to="GameManager" method="test_buy_basic_math"]
