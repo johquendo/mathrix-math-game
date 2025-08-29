@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://6mkg2rpb6p4s"]
+[gd_scene load_steps=9 format=3 uid="uid://6mkg2rpb6p4s"]
 
 [ext_resource type="FontFile" uid="uid://cmqyf6t67qmpu" path="res://Fonts/Gildeon.otf" id="1_2shtd"]
 [ext_resource type="Script" uid="uid://pj1onekf2xx2" path="res://Godot script/Scenes Script/shop.gd" id="1_io27d"]
 [ext_resource type="Script" uid="uid://cr0ld030fqmh8" path="res://Shop/ShopRestockSystem.gd" id="2_3ps1r"]
-[ext_resource type="FontFile" uid="uid://docxxo2smmwtj" path="res://Fonts/Helvetica-Bold.ttf" id="2_io27d"]
 [ext_resource type="Script" uid="uid://ck173dldbayxp" path="res://Shop/problem_generator.gd" id="3_s8dlv"]
 [ext_resource type="Script" uid="uid://i11lkvdwa0ms" path="res://Shop/GameManager.gd" id="3_ymrm4"]
 [ext_resource type="Script" uid="uid://csiirhl08dyll" path="res://Shop/SimpleUi.gd" id="4_s8dlv"]
@@ -65,15 +64,6 @@ offset_bottom = 47.0
 theme_override_fonts/normal_font = ExtResource("1_2shtd")
 theme_override_font_sizes/normal_font_size = 40
 text = "Equation Shop"
-
-[node name="Back" type="Button" parent="SimpleUI/ShopPanel"]
-layout_mode = 2
-offset_left = 535.0
-offset_top = 2.0
-offset_right = 613.0
-offset_bottom = 44.0
-theme_override_fonts/font = ExtResource("2_io27d")
-text = "back"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SimpleUI/ShopPanel"]
 layout_mode = 1
@@ -387,15 +377,6 @@ offset_top = 47.0
 offset_right = 890.0
 offset_bottom = 585.0
 
-[node name="Back" type="Button" parent="SimpleUI/ToolShopPanel"]
-layout_mode = 0
-offset_left = 535.0
-offset_top = 2.0
-offset_right = 613.0
-offset_bottom = 44.0
-theme_override_fonts/font = ExtResource("2_io27d")
-text = "back"
-
 [node name="ShopTextContainer" type="Panel" parent="SimpleUI/ToolShopPanel"]
 layout_mode = 0
 offset_left = 22.0
@@ -489,6 +470,7 @@ offset_bottom = 83.0
 texture = ExtResource("8_s8dlv")
 
 [node name="CalculatorStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer/ToolPanel"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 113.0
 offset_right = 189.0
@@ -558,6 +540,7 @@ offset_bottom = 83.0
 texture = ExtResource("9_tyrku")
 
 [node name="DisplayCaseStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer2/ToolPanel"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 113.0
 offset_right = 189.0
@@ -627,6 +610,7 @@ offset_bottom = 83.0
 texture = ExtResource("8_s8dlv")
 
 [node name="UpgradeMedalStockLabel" type="Label" parent="SimpleUI/ToolShopPanel/ScrollContainer/VBoxContainer/ItemContainer3/ToolPanel"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 113.0
 offset_right = 189.0
@@ -658,10 +642,8 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_down" from="SimpleUI/ShopPanel/Back" to="." method="_on_back_button_down"]
 [connection signal="pressed" from="SimpleUI/ShopPanel/ScrollContainer/VBoxContainer/ItemContainer/ButtonContainer/BuyCommon" to="GameManager" method="test_buy_basic_math"]
 [connection signal="pressed" from="SimpleUI/ShopPanel/ScrollContainer/VBoxContainer/ItemContainer2/ButtonContainer/BuyUncommon" to="GameManager" method="test_buy_uncommon_math"]
 [connection signal="pressed" from="SimpleUI/ShopPanel/ScrollContainer/VBoxContainer/ItemContainer3/ButtonContainer/BuyRare" to="GameManager" method="test_buy_rare_math"]
 [connection signal="button_down" from="SimpleUI/ShopPanel/ToolsButton" to="." method="_on_tools_button_button_down"]
-[connection signal="button_down" from="SimpleUI/ToolShopPanel/Back" to="." method="_on_back_button_down"]
 [connection signal="button_down" from="SimpleUI/ToolShopPanel/EquationsButton" to="." method="_on_equations_button_button_down"]

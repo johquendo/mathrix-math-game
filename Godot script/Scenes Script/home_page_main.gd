@@ -115,7 +115,7 @@ func _on_shop_button_down() -> void:
 	timer.visible = true
 	if whiteboard_layer: whiteboard_layer.visible = false
 
-func _on_back_button_down() -> void:
+func _on_shop_back_button_button_down() -> void:
 	shop.visible = false
 	if whiteboard_layer: whiteboard_layer.visible = true
 
