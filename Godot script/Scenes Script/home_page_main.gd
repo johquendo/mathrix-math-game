@@ -18,6 +18,7 @@ extends Control
 # Tool button references
 @onready var pen_tool_button: Button = $BoardTools/PenToolButton
 @onready var text_tool_button: Button = $BoardTools/TextToolButton
+@onready var eraser_tool_button: Button = $BoardTools/EraserToolButton
 
 var whiteboard_scene = preload("res://Scenes/WhiteboardApp.tscn")
 var whiteboard_instance: Control = null
@@ -33,6 +34,8 @@ func _ready() -> void:
 		pen_tool_button.pressed.connect(_on_pen_tool_selected)
 	if text_tool_button:
 		text_tool_button.pressed.connect(_on_text_tool_selected)
+	if eraser_tool_button:
+		eraser_tool_button.pressed.connect(_on_eraser_tool_selected)
 
 	# setup whiteboard ONCE
 	call_deferred("_setup_whiteboard")
@@ -64,12 +67,18 @@ func _setup_whiteboard() -> void:
 			whiteboard_instance.pen_tool_selected.connect(_on_whiteboard_pen_tool_selected)
 		if whiteboard_instance.has_signal("text_tool_selected"):
 			whiteboard_instance.text_tool_selected.connect(_on_whiteboard_text_tool_selected)
+		if whiteboard_instance.has_signal("eraser_tool_selected"):
+			whiteboard_instance.eraser_tool_selected.connect(_on_whiteboard_eraser_tool_selected)
 
 # Tool selection functions that call whiteboard methods
 func _on_pen_tool_selected():
 	if whiteboard_instance:
 		whiteboard_instance.call_deferred("_on_pen_tool_selected")
 
+func _on_eraser_tool_selected():
+	if whiteboard_instance:
+		whiteboard_instance.call_deferred("_on_eraser_tool_selected")
+		
 func _on_text_tool_selected():
 	if whiteboard_instance:
 		whiteboard_instance.call_deferred("_on_text_tool_selected")
@@ -80,12 +89,24 @@ func _on_whiteboard_pen_tool_selected():
 		pen_tool_button.button_pressed = true
 	if text_tool_button:
 		text_tool_button.button_pressed = false
+	if eraser_tool_button:
+		eraser_tool_button.button_pressed = false
 
 func _on_whiteboard_text_tool_selected():
 	if pen_tool_button:
 		pen_tool_button.button_pressed = false
 	if text_tool_button:
 		text_tool_button.button_pressed = true
+	if eraser_tool_button:
+		eraser_tool_button.button_pressed = false
+
+func _on_whiteboard_eraser_tool_selected():
+	if pen_tool_button:
+		pen_tool_button.button_pressed = false
+	if text_tool_button:
+		text_tool_button.button_pressed = false
+	if eraser_tool_button:
+		eraser_tool_button.button_pressed = true
 
 # --- Button Handlers with panel + whiteboard toggle ---
 func _on_shop_button_down() -> void:
