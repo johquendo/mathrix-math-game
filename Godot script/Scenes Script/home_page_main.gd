@@ -171,7 +171,8 @@ func _on_back_p_4_button_down(): player_4.visible = false
 func _on_p_5_button_down(): player_5.visible = true
 func _on_back_p_5_button_down(): player_5.visible = false
 
-#---------------------------------------------------------
+
+# <--- ANSWER RELATED FUNCTIONS --->
 
 # ANSWER VARIABLE
 func _on_whiteboard_answer_submitted(answer: String):

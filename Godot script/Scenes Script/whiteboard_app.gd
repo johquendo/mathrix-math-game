@@ -30,6 +30,7 @@ var eraser_image: Image
 # Submit answer variables
 var submitted_answer: String = ""
 var submit_button_initialized = false
+var answer_input_active = false
 
 @onready var drawing_layer = $DrawingLayer
 @onready var background = $Background
@@ -52,7 +53,7 @@ func _ready():
 
 	# Initialize canvas for bitmap drawing
 	var viewport_size = get_viewport_rect().size
-	canvas_image = Image.create(viewport_size.x, viewport_size.y, false, Image.FORMAT_RGBA8)
+	canvas_image = Image.create(viewport_size.x,viewport_size.y, false, Image.FORMAT_RGBA8)
 	canvas_image.fill(Color.TRANSPARENT)
 	canvas_texture = ImageTexture.create_from_image(canvas_image)
 
@@ -126,13 +127,33 @@ func show_answer_input():
 		(size.y - text_edit_size.y) / 2
 	)
 	
+	# Set flag to indicate answer input is active
+	answer_input_active = true
+	
 	# Disable drawing tools while answering
 	set_tools_enabled(false)
+	
+	# Hide eraser visual indicator
+	eraser_visible = false
+	
+	# Force redraw to hide the eraser circle
+	queue_redraw()
 
 func hide_answer_input():
 	if answer_text_edit:
 		answer_text_edit.visible = false
+	
+	# Reset flag
+	answer_input_active = false
+	
 	set_tools_enabled(true)
+	
+	# Restore eraser visibility based on current tool
+	if current_tool == Tool.ERASER:
+		eraser_visible = true
+	
+	# Force redraw to show the eraser circle if needed
+	queue_redraw()
 
 func set_tools_enabled(enabled: bool):
 	if pen_tool_button:
@@ -194,7 +215,9 @@ func _on_eraser_tool_selected():
 	if active_text_instance:
 		active_text_instance.finish_editing()
 	active_text_instance = null
-	eraser_visible = true
+	
+	# Only show eraser if answer input is not active
+	eraser_visible = not answer_input_active
 
 	# Set cursor to arrow when in eraser mode
 	Input.set_custom_mouse_cursor(null)
@@ -212,6 +235,15 @@ func _set_text_boxes_mouse_filter(filter):
 			text_instance.get_node("TextEdit").mouse_filter = filter
 
 func _input(event):
+	# If answer input is active, don't process drawing/erasing events
+	if answer_input_active:
+		# Only allow events related to the text input
+		if event is InputEventKey and event.pressed and answer_text_edit and answer_text_edit.visible:
+			if event.keycode == KEY_ENTER:
+				submit_answer()
+				get_viewport().set_input_as_handled()
+		return
+		
 	# Reset the just_finished_editing flag after processing
 	if just_finished_editing:
 		just_finished_editing = false
@@ -336,6 +368,10 @@ func handle_right_click_text_tool(click_position):
 	get_viewport().set_input_as_handled()
 
 func _gui_input(event):
+	# If answer input is active, don't process drawing events
+	if answer_input_active:
+		return
+		
 	# Only process events within whiteboard bounds
 	if not _is_within_drawing_bounds(event.position):
 		return  # Ignore events outside whiteboard
@@ -474,8 +510,8 @@ func _draw():
 				var rect = Rect2(text_instance.position, text_instance.size)
 				draw_rect(rect, Color.GRAY, false, 1.0)
 
-	# Draw eraser visual indicator when eraser tool is active
-	if current_tool == Tool.ERASER and eraser_visible:
+	# Draw eraser visual indicator when eraser tool is active and answer input is not active
+	if current_tool == Tool.ERASER and eraser_visible and not answer_input_active:
 		draw_texture(eraser_texture, eraser_position - Vector2(eraser_size/2, eraser_size/2))
 
 func add_text(position):
