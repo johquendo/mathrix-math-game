@@ -1,6 +1,8 @@
 extends Control
 
 signal tool_changed(new_tool)
+signal answer_submitted(answer)
+
 enum Tool { PEN, TEXT, ERASER }
 var current_tool = Tool.PEN
 var drawing = false
@@ -25,12 +27,18 @@ var eraser_position = Vector2()
 var eraser_texture: ImageTexture
 var eraser_image: Image
 
+# Submit answer variables
+var submitted_answer: String = ""
+var submit_button_initialized = false
+
 @onready var drawing_layer = $DrawingLayer
 @onready var background = $Background
 @onready var ui_tools = $UITools
 @onready var pen_tool_button = $UITools/PenToolButton
 @onready var text_tool_button = $UITools/TextToolButton
 @onready var eraser_tool_button = $UITools/EraserToolButton
+@onready var submit_button = $SubmitButton
+@onready var answer_text_edit = $AnswerTextEdit
 
 func _ready():
 	# Set up background - make sure it's behind everything
@@ -47,7 +55,7 @@ func _ready():
 	canvas_image = Image.create(viewport_size.x, viewport_size.y, false, Image.FORMAT_RGBA8)
 	canvas_image.fill(Color.TRANSPARENT)
 	canvas_texture = ImageTexture.create_from_image(canvas_image)
-	
+
 	# Create eraser visual texture
 	eraser_image = Image.create(eraser_size, eraser_size, false, Image.FORMAT_RGBA8)
 	eraser_image.fill(Color.TRANSPARENT)
@@ -65,9 +73,89 @@ func _ready():
 	pen_tool_button.pressed.connect(_on_pen_tool_selected)
 	text_tool_button.pressed.connect(_on_text_tool_selected)
 	eraser_tool_button.pressed.connect(_on_eraser_tool_selected)
+	
+	# Connect submit button
+	if submit_button:
+		submit_button.pressed.connect(_on_submit_button_pressed)
+	
+	# Connect text edit signals
+	if answer_text_edit:
+		answer_text_edit.text_changed.connect(_on_answer_text_changed)
+		# Set a larger size for the text edit
+		answer_text_edit.custom_minimum_size = Vector2(400, 200)
+		answer_text_edit.size = Vector2(400, 200)
+		answer_text_edit.visible = false
 
 	# Make sure we can receive input
 	mouse_filter = MOUSE_FILTER_STOP
+	
+	# Use call deferred to position the button after everything is loaded
+	call_deferred("initialize_submit_button")
+
+func initialize_submit_button():
+	if submit_button and not submit_button_initialized:
+		# Position the submit button in the bottom right corner
+		var margin = 10
+		submit_button.position = Vector2(
+			size.x - submit_button.size.x - margin,
+			size.y - submit_button.size.y - margin
+		)
+		submit_button_initialized = true
+
+func _on_submit_button_pressed():
+	if answer_text_edit and answer_text_edit.visible:
+		# If already visible, submit the answer
+		submit_answer()
+	else:
+		# Show the answer text edit in the center
+		show_answer_input()
+
+func show_answer_input():
+	if not answer_text_edit:
+		return
+		
+	# Show the answer text edit in the center of the whiteboard
+	answer_text_edit.visible = true
+	answer_text_edit.text = ""
+	answer_text_edit.grab_focus()
+	
+	# Center the text edit with its proper size
+	var text_edit_size = answer_text_edit.size
+	answer_text_edit.position = Vector2(
+		(size.x - text_edit_size.x) / 2,
+		(size.y - text_edit_size.y) / 2
+	)
+	
+	# Disable drawing tools while answering
+	set_tools_enabled(false)
+
+func hide_answer_input():
+	if answer_text_edit:
+		answer_text_edit.visible = false
+	set_tools_enabled(true)
+
+func set_tools_enabled(enabled: bool):
+	if pen_tool_button:
+		pen_tool_button.disabled = not enabled
+	if text_tool_button:
+		text_tool_button.disabled = not enabled
+	if eraser_tool_button:
+		eraser_tool_button.disabled = not enabled
+
+func _on_answer_text_changed():
+	# Handle text changes if needed
+	pass
+
+func submit_answer():
+	if answer_text_edit:
+		submitted_answer = answer_text_edit.text
+		hide_answer_input()
+		
+		# Print for debugging (you can remove this)
+		print("Answer submitted: ", submitted_answer)
+		
+		# Emit signal to notify parent
+		emit_signal("answer_submitted", submitted_answer)
 
 func _on_pen_tool_selected():
 	current_tool = Tool.PEN
@@ -75,13 +163,13 @@ func _on_pen_tool_selected():
 		active_text_instance.finish_editing()
 	active_text_instance = null
 	eraser_visible = false
-	
+
 	# Set cursor to arrow when in pen mode to avoid text cursor
 	Input.set_custom_mouse_cursor(null)
-	
+
 	# Make text boxes ignore mouse events when in pen mode
 	_set_text_boxes_mouse_filter(Control.MOUSE_FILTER_IGNORE)
-	
+
 	emit_signal("tool_changed", current_tool)
 	queue_redraw()
 
@@ -91,13 +179,13 @@ func _on_text_tool_selected():
 		active_text_instance.finish_editing()
 	active_text_instance = null
 	eraser_visible = false
-	
+
 	# Set cursor to I-beam when in text mode
 	Input.set_custom_mouse_cursor(null)
-	
+
 	# Make text boxes accept mouse events when in text mode
 	_set_text_boxes_mouse_filter(Control.MOUSE_FILTER_STOP)
-	
+
 	emit_signal("tool_changed", current_tool)
 	queue_redraw()
 
@@ -107,13 +195,13 @@ func _on_eraser_tool_selected():
 		active_text_instance.finish_editing()
 	active_text_instance = null
 	eraser_visible = true
-	
+
 	# Set cursor to arrow when in eraser mode
 	Input.set_custom_mouse_cursor(null)
-	
+
 	# Make text boxes ignore mouse events when in eraser mode
 	_set_text_boxes_mouse_filter(Control.MOUSE_FILTER_IGNORE)
-	
+
 	emit_signal("tool_changed", current_tool)
 	queue_redraw()
 
@@ -136,14 +224,18 @@ func _input(event):
 				if erasing:
 					# Erase at mouse position
 					erase_from_canvas(event.position)
-			
+
 			# Check if we're clicking on UI tools (buttons)
 			var clicked_on_ui = false
-			if pen_tool_button.get_global_rect().has_point(event.position):
+			if pen_tool_button and pen_tool_button.get_global_rect().has_point(event.position):
 				clicked_on_ui = true
-			if text_tool_button.get_global_rect().has_point(event.position):
+			if text_tool_button and text_tool_button.get_global_rect().has_point(event.position):
 				clicked_on_ui = true
-			if eraser_tool_button.get_global_rect().has_point(event.position):
+			if eraser_tool_button and eraser_tool_button.get_global_rect().has_point(event.position):
+				clicked_on_ui = true
+			if submit_button and submit_button.get_global_rect().has_point(event.position):
+				clicked_on_ui = true
+			if answer_text_edit and answer_text_edit.visible and answer_text_edit.get_global_rect().has_point(event.position):
 				clicked_on_ui = true
 
 			if clicked_on_ui and event.pressed:
@@ -215,10 +307,15 @@ func _input(event):
 			var local_pos = get_local_mouse_position()
 			eraser_position = local_pos
 			queue_redraw()
-			
+
 			# Continue erasing if mouse button is held down
 			if erasing:
 				erase_from_canvas(local_pos)
+	
+	# Handle Enter key press to submit answer
+	if event is InputEventKey and event.pressed and answer_text_edit and answer_text_edit.visible:
+		if event.keycode == KEY_ENTER:
+			submit_answer()
 
 func handle_right_click_text_tool(click_position):
 	# Check if we're right-clicking on a text box
@@ -319,17 +416,17 @@ func draw_to_canvas(from_pos, to_pos, color):
 	var sx = 1 if from_pos.x < to_pos.x else -1
 	var sy = 1 if from_pos.y < to_pos.y else -1
 	var err = dx - dy
-	
+
 	var x = from_pos.x
 	var y = from_pos.y
-	
+
 	while true:
 		# Draw a circle at each point for thicker lines
 		draw_circle_at_point(Vector2(x, y), color)
-		
+
 		if x == to_pos.x and y == to_pos.y:
 			break
-		
+
 		var e2 = 2 * err
 		if e2 > -dy:
 			err -= dy
@@ -337,7 +434,7 @@ func draw_to_canvas(from_pos, to_pos, color):
 		if e2 < dx:
 			err += dx
 			y += sy
-	
+
 	canvas_texture.update(canvas_image)
 
 func draw_circle_at_point(center, color):
@@ -354,21 +451,21 @@ func erase_from_canvas(position):
 	# Erase a circular area from the canvas
 	var center = position
 	var radius = eraser_size / 2
-	
+
 	for dx in range(-radius, radius + 1):
 		for dy in range(-radius, radius + 1):
 			if dx*dx + dy*dy <= radius*radius:
 				var point = Vector2(center.x + dx, center.y + dy)
 				if _is_within_drawing_bounds(point):
 					canvas_image.set_pixel(point.x, point.y, Color.TRANSPARENT)
-	
+
 	canvas_texture.update(canvas_image)
 
 func _draw():
 	# Draw the canvas texture
 	if canvas_texture:
 		draw_texture(canvas_texture, Vector2.ZERO)
-	
+
 	# Draw borders for text boxes in text mode
 	if current_tool == Tool.TEXT:
 		for text_instance in text_instances:
@@ -376,7 +473,7 @@ func _draw():
 				# Draw gray border around each text box in text mode
 				var rect = Rect2(text_instance.position, text_instance.size)
 				draw_rect(rect, Color.GRAY, false, 1.0)
-	
+
 	# Draw eraser visual indicator when eraser tool is active
 	if current_tool == Tool.ERASER and eraser_visible:
 		draw_texture(eraser_texture, eraser_position - Vector2(eraser_size/2, eraser_size/2))
@@ -466,4 +563,13 @@ func safely_finish_editing():
 		active_text_instance.finish_editing()
 		active_text_instance = null
 		queue_redraw()
-#testing
+
+# Function to get the submitted answer from other scripts
+func get_submitted_answer() -> String:
+	return submitted_answer
+
+# Handle resizing of the whiteboard
+func _notification(what):
+	if what == NOTIFICATION_RESIZED:
+		# Use call deferred to avoid issues with node initialization
+		call_deferred("initialize_submit_button")

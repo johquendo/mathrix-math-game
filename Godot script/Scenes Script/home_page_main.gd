@@ -61,7 +61,7 @@ func _setup_whiteboard() -> void:
 	whiteboard_instance.position = Vector2(221, 16)
 	whiteboard_instance.size = Vector2(706, 608)
 	whiteboard_instance.mouse_filter = Control.MOUSE_FILTER_STOP
-	
+
 	if whiteboard_instance:
 		if whiteboard_instance.has_signal("pen_tool_selected"):
 			whiteboard_instance.pen_tool_selected.connect(_on_whiteboard_pen_tool_selected)
@@ -69,6 +69,10 @@ func _setup_whiteboard() -> void:
 			whiteboard_instance.text_tool_selected.connect(_on_whiteboard_text_tool_selected)
 		if whiteboard_instance.has_signal("eraser_tool_selected"):
 			whiteboard_instance.eraser_tool_selected.connect(_on_whiteboard_eraser_tool_selected)
+		
+		# Connect to the answer submitted signal if it exists
+		if whiteboard_instance.has_signal("answer_submitted"):
+			whiteboard_instance.answer_submitted.connect(_on_whiteboard_answer_submitted)
 
 # Tool selection functions that call whiteboard methods
 func _on_pen_tool_selected():
@@ -166,3 +170,10 @@ func _on_p_4_button_down(): player_4.visible = true
 func _on_back_p_4_button_down(): player_4.visible = false
 func _on_p_5_button_down(): player_5.visible = true
 func _on_back_p_5_button_down(): player_5.visible = false
+
+#---------------------------------------------------------
+
+# ANSWER VARIABLE
+func _on_whiteboard_answer_submitted(answer: String):
+	print("Answer received from whiteboard: ", answer)
+#	ADD STUFF HERE

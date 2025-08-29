@@ -66,3 +66,14 @@ offset_top = 29.0
 offset_right = 266.0
 offset_bottom = 60.0
 text = "Eraser"
+
+[node name="SubmitButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Submit Answer"
+
+[node name="AnswerTextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
