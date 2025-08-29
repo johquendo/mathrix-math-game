@@ -420,10 +420,6 @@ offset_top = 572.0
 offset_right = 174.0
 offset_bottom = 612.0
 
-[node name="EraserToolButton" type="Button" parent="BoardTools"]
-layout_mode = 2
-text = "Eraser"
-
 [node name="PenToolButton" type="Button" parent="BoardTools"]
 layout_mode = 2
 text = "Pen"
@@ -431,6 +427,10 @@ text = "Pen"
 [node name="TextToolButton" type="Button" parent="BoardTools"]
 layout_mode = 2
 text = "Text"
+
+[node name="EraserToolButton" type="Button" parent="BoardTools"]
+layout_mode = 2
+text = "Eraser"
 
 [connection signal="button_down" from="main/profile" to="." method="_on_profile_button_down"]
 [connection signal="button_down" from="main/shop" to="." method="_on_shop_button_down"]

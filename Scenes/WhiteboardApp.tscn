@@ -27,6 +27,7 @@ mouse_filter = 2
 z_index = 1
 
 [node name="UITools" type="Control" parent="."]
+visible = false
 z_index = 1
 anchors_preset = 0
 offset_right = 40.0
