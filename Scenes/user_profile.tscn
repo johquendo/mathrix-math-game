@@ -1,0 +1,500 @@
+[gd_scene load_steps=27 format=3 uid="uid://5faeyfcv7vxd"]
+
+[ext_resource type="Texture2D" uid="uid://cirigx8w17xfk" path="res://Images/game_logo.png" id="1_jnvs6"]
+[ext_resource type="Script" uid="uid://h1gh1q20egst" path="res://Godot script/Scenes Script/user_profile.gd" id="1_l2ps4"]
+[ext_resource type="Texture2D" uid="uid://cu4mg65wmsy16" path="res://Images/pfptemp.jpg" id="1_om2v6"]
+[ext_resource type="FontFile" uid="uid://cpp8fwktl7xll" path="res://Fonts/helvetica-rounded-bold-5871d05ead8de.otf" id="4_l2ps4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fiank"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyma7"]
+bg_color = Color(0, 0.113725, 0.247059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy5"]
+bg_color = Color(0.0531662, 0.461602, 0.879567, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb2eu"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btnv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nwtb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnvs6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2ps4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ge722"]
+
+[sub_resource type="Theme" id="Theme_fyma7"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_btnv2")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_0nwtb")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_jnvs6")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_l2ps4")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ge722")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om2v6"]
+bg_color = Color(0, 0.113725, 0.247059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nwtb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnvs6"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbip5"]
+bg_color = Color(0.0214584, 0.243517, 0.479465, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2ps4"]
+bg_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge722"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyma7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb2eu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbip5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji3ir"]
+bg_color = Color(0.0196078, 0.243137, 0.478431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b36ih"]
+bg_color = Color(0.054902, 0.462745, 0.878431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nmia"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="UserProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2ps4")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fiank")
+
+[node name="LogoBackground" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.0
+offset_top = -314.0
+offset_right = -478.0
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fyma7")
+
+[node name="GameLogo2" type="TextureRect" parent="Background/LogoBackground"]
+layout_mode = 0
+offset_left = -34.5
+offset_top = -40.0
+offset_right = 122.5
+offset_bottom = 117.0
+texture = ExtResource("1_jnvs6")
+expand_mode = 1
+
+[node name="BackMargin" type="MarginContainer" parent="Background"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="BackButton" type="Button" parent="Background/BackMargin"]
+custom_minimum_size = Vector2(130, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_ycdy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ycdy5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ycdy5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ycdy5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mb2eu")
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -455.0
+offset_top = -323.5
+offset_right = 455.0
+offset_bottom = 323.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fyma7")
+
+[node name="ScrollMargin" type="MarginContainer" parent="Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_bottom = 50
+
+[node name="ProfileItemsContainer" type="VBoxContainer" parent="Background/ScrollContainer/ScrollMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="MainProfileContainer" type="Panel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_om2v6")
+
+[node name="ProfileMargin" type="MarginContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer"]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 170.0
+
+[node name="ProfilePictureContainer" type="Panel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ProfileMargin"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nwtb")
+
+[node name="ProfilePictureRound" type="PanelContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ProfileMargin/ProfilePictureContainer"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jnvs6")
+
+[node name="ProfilePicture" type="TextureRect" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ProfileMargin/ProfilePictureContainer/ProfilePictureRound"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_om2v6")
+expand_mode = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="ButtonMargin" type="MarginContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="ViewPlotButton" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer/ButtonMargin"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2ps4")
+text = "View Plot"
+
+[node name="LogOutButton" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer/ButtonMargin"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2ps4")
+text = "Log Out"
+
+[node name="ButtonMargin2" type="MarginContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer"]
+layout_mode = 2
+
+[node name="EditProfileButton" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer/ButtonMargin2"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbip5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2ps4")
+text = "Edit Profile"
+
+[node name="TextProfileContainer" type="VBoxContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 20.0
+offset_right = 234.0
+offset_bottom = 180.0
+grow_horizontal = 2
+
+[node name="Name" type="RichTextLabel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/TextProfileContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_l2ps4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "NamePlaceholder"
+
+[node name="Rank" type="RichTextLabel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/TextProfileContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_l2ps4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "RankPlaceholder"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/TextProfileContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_l2ps4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Placeholder"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/TextProfileContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_l2ps4")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Placeholder"
+
+[node name="CategoryContainer" type="Panel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_om2v6")
+
+[node name="CategoryMargin" type="MarginContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+
+[node name="CategoryHBox" type="HBoxContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer/CategoryMargin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Statistics" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer/CategoryMargin/CategoryHBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fyma7")
+text = "Statistics"
+
+[node name="Inventory" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer/CategoryMargin/CategoryHBox"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mb2eu")
+text = "Inventory"
+
+[node name="Button" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer/CategoryMargin/CategoryHBox"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lbip5")
+text = "Solved Equations"
+
+[node name="Button2" type="Button" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/CategoryContainer/CategoryMargin/CategoryHBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ge722")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lbip5")
+text = "Achievements"
+
+[node name="ProfileStatsContainer" type="Panel" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_om2v6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer"]
+layout_mode = 2
+
+[node name="LogOutConfirmation" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -80.0
+offset_right = 175.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ji3ir")
+
+[node name="LogOutMessage" type="RichTextLabel" parent="Background/LogOutConfirmation"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("4_l2ps4")
+theme_override_font_sizes/normal_font_size = 25
+text = "Are you sure to log out?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LogOutButtonMargin" type="MarginContainer" parent="Background/LogOutConfirmation"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -83.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LogOutButtonContainer" type="HBoxContainer" parent="Background/LogOutConfirmation/LogOutButtonMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Cancel" type="Button" parent="Background/LogOutConfirmation/LogOutButtonMargin/LogOutButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nmia")
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="Background/LogOutConfirmation/LogOutButtonMargin/LogOutButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_l2ps4")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b36ih")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nmia")
+text = "Confirm"
+
+[connection signal="button_down" from="Background/ScrollContainer/ScrollMargin/ProfileItemsContainer/MainProfileContainer/ButtonContainer/ButtonMargin/LogOutButton" to="." method="_on_log_out_button_button_down"]
+[connection signal="button_down" from="Background/LogOutConfirmation/LogOutButtonMargin/LogOutButtonContainer/Cancel" to="." method="_on_cancel_button_down"]

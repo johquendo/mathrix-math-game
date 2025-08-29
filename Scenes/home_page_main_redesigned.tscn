@@ -1,0 +1,376 @@
+[gd_scene load_steps=31 format=3 uid="uid://fm10g7t6ljwv"]
+
+[ext_resource type="FontFile" uid="uid://cpp8fwktl7xll" path="res://Fonts/helvetica-rounded-bold-5871d05ead8de.otf" id="2_0lbyk"]
+[ext_resource type="FontFile" uid="uid://docxxo2smmwtj" path="res://Fonts/Helvetica-Bold.ttf" id="2_mykhn"]
+[ext_resource type="PackedScene" uid="uid://6mkg2rpb6p4s" path="res://Scenes/shop.tscn" id="3_iadrb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w63dr"]
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fscwk"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sus3r"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y7tx"]
+bg_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lbyk"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdql7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdql7"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvv4p"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nftt4"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toq37"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvv4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4pyr"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytfkv"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rft6"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrva0"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nftt4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18455"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq607"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1er21"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uq63"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4pyr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gmuc"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8dnt"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82aqw"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r8mb"]
+bg_color = Color(2.40654e-08, 0.182923, 0.370939, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytfkv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4r40"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w63dr")
+
+[node name="RightContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+offset_left = 952.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="RightContainerBackground" type="Panel" parent="Background/RightContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fscwk")
+
+[node name="LeftContainer" type="MarginContainer" parent="Background"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 648.0
+
+[node name="LeftContainerBackground" type="Panel" parent="Background/LeftContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sus3r")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/LeftContainer/LeftContainerBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ButtonContainer" type="Panel" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer"]
+clip_children = 2
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y7tx")
+
+[node name="MainButtonsContainer" type="VBoxContainer" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ProfileButton" type="Button" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_0lbyk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_0lbyk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0lbyk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0lbyk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0lbyk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xdql7")
+action_mode = 0
+text = "Profile"
+
+[node name="ShopButton" type="Button" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_0lbyk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_xdql7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lvv4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nftt4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_toq37")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lvv4p")
+action_mode = 0
+text = "Shop"
+
+[node name="InventoryButton" type="Button" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_0lbyk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_n4pyr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ytfkv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2rft6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xrva0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nftt4")
+action_mode = 0
+text = "Inventory
+"
+
+[node name="LeaderboardsButton" type="Button" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_0lbyk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_18455")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_jq607")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1er21")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2uq63")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n4pyr")
+action_mode = 0
+text = "Leaderboards"
+
+[node name="SettingsButton" type="Button" parent="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_0lbyk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_2gmuc")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_s8dnt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82aqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0r8mb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ytfkv")
+action_mode = 0
+text = "Settings"
+
+[node name="MiddleContainer" type="PanelContainer" parent="Background"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 16.0
+offset_right = 927.0
+offset_bottom = 624.0
+
+[node name="Whiteboard" type="Panel" parent="Background/MiddleContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4r40")
+
+[node name="settings" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_setting" type="Button" parent="settings"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="profile" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_profile" type="Button" parent="profile"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="inventory" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_inventory" type="Button" parent="inventory"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="leaderboards" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_leaderboards" type="Button" parent="leaderboards"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="Shop" parent="." instance=ExtResource("3_iadrb")]
+layout_mode = 1
+
+[connection signal="button_down" from="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer/ProfileButton" to="." method="_on_profile_button_down"]
+[connection signal="button_down" from="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer/ShopButton" to="." method="_on_shop_button_down"]
+[connection signal="button_down" from="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer/InventoryButton" to="." method="_on_inventory_button_down"]
+[connection signal="button_down" from="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer/LeaderboardsButton" to="." method="_on_leaderboards_button_down"]
+[connection signal="button_down" from="Background/LeftContainer/LeftContainerBackground/MarginContainer/ButtonContainer/MainButtonsContainer/SettingsButton" to="." method="_on_settings_button_down"]
+[connection signal="button_down" from="settings/back_setting" to="." method="_on_backk_button_down"]
+[connection signal="button_down" from="profile/back_profile" to="." method="_on_back_profile_button_down"]
+[connection signal="button_down" from="inventory/back_inventory" to="." method="_on_back_inventory_button_down"]
+[connection signal="button_down" from="leaderboards/back_leaderboards" to="." method="_on_back_leaderboards_button_down"]

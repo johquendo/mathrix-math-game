@@ -1,0 +1,1 @@
+Pressing Enter will Add 100 coins per press

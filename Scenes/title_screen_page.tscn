@@ -1,0 +1,189 @@
+[gd_scene load_steps=19 format=3 uid="uid://od6v4lqk7otq"]
+
+[ext_resource type="Script" uid="uid://c4aaloj1608ou" path="res://Godot script/Scenes Script/title_screen_page.gd" id="1_qjalg"]
+[ext_resource type="Texture2D" uid="uid://d3qf0oown1w4p" path="res://Images/full_game_logo.png" id="2_rrn07"]
+[ext_resource type="Texture2D" uid="uid://b36yul5lif6eg" path="res://Images/sprite_0.png" id="3_w73sr"]
+[ext_resource type="Script" path="res://Godot script/Scenes Script/sprite_0.gd" id="4_5wygy"]
+[ext_resource type="Texture2D" uid="uid://bqv750hdegvd0" path="res://Images/sprite_1.png" id="5_shwnm"]
+[ext_resource type="Script" path="res://Scenes/sprite_1.gd" id="6_1gu54"]
+[ext_resource type="Texture2D" uid="uid://bbstxe3sk4f2t" path="res://Images/sprite_2.png" id="7_nes4b"]
+[ext_resource type="Script" path="res://Scenes/sprite_2.gd" id="8_8qii7"]
+[ext_resource type="Texture2D" uid="uid://bk5pxrfpa3d8t" path="res://Images/sprite_3.png" id="9_8ejfx"]
+[ext_resource type="Script" path="res://Scenes/sprite_3.gd" id="10_s6nlc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q470r"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="GDScript" id="GDScript_p0gjb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w73sr"]
+bg_color = Color(0.0156863, 0.207843, 0.415686, 0.313726)
+border_width_right = 2
+border_width_bottom = 3
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w73sr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wygy"]
+bg_color = Color(0.0156863, 0.207843, 0.415686, 0.313726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="GDScript" id="GDScript_shwnm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0gjb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm28l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qjalg")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q470r")
+script = SubResource("GDScript_p0gjb")
+
+[node name="GameDescription" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = 253.0
+offset_right = 350.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_font_sizes/normal_font_size = 13
+text = "An online problem-solving and collection game where players compete to prove their math mastery
+"
+tab_size = 1
+horizontal_alignment = 1
+
+[node name="LogoBackground" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -240.0
+offset_right = 97.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w73sr")
+
+[node name="GameLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -325.0
+offset_right = 178.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rrn07")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite0" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w73sr")
+position = Vector2(178.408, 122.247)
+rotation = -0.120428
+scale = Vector2(3.0819, 3.06483)
+texture = ExtResource("3_w73sr")
+script = ExtResource("4_5wygy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 335.0
+offset_right = 757.0
+offset_bottom = 464.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wygy")
+script = SubResource("GDScript_shwnm")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = 36.0
+offset_right = 154.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0gjb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm28l")
+text = "PRESS TO START"
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(963, 397)
+rotation = -0.359538
+scale = Vector2(3.8, 2.185)
+texture = ExtResource("5_shwnm")
+script = ExtResource("6_1gu54")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(182, 412)
+rotation = 0.359538
+scale = Vector2(4.57813, 4.70313)
+texture = ExtResource("7_nes4b")
+script = ExtResource("8_8qii7")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(891, 128)
+rotation = 0.296706
+scale = Vector2(4.1875, 3.8125)
+texture = ExtResource("9_8ejfx")
+script = ExtResource("10_s6nlc")
+
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartButton" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

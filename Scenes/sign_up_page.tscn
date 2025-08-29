@@ -1,0 +1,296 @@
+[gd_scene load_steps=18 format=3 uid="uid://dojqniic322hs"]
+
+[ext_resource type="Script" uid="uid://dwt8ccrpkobrw" path="res://Godot script/Scenes Script/sign_up_page.gd" id="1_kljoo"]
+[ext_resource type="Texture2D" uid="uid://cirigx8w17xfk" path="res://Images/game_logo.png" id="2_h1pxh"]
+[ext_resource type="FontFile" uid="uid://cpp8fwktl7xll" path="res://Fonts/helvetica-rounded-bold-5871d05ead8de.otf" id="2_n38k3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skapt"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kdhm"]
+bg_color = Color(0.0196078, 0.243137, 0.478431, 1)
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gurh5"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0197565, 0.233753, 0.46202, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kljoo"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3fwo"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0197565, 0.233753, 0.46202, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n38k3"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bxgp"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0197565, 0.233753, 0.46202, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5wv0"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpoke"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0197565, 0.233753, 0.46202, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijdwd"]
+content_margin_left = 10.0
+bg_color = Color(0.0196078, 0.305882, 0.596078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0156863, 0.207843, 0.415686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c64kw"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2nyb"]
+bg_color = Color(0.054902, 0.462745, 0.878431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2nbp"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjtbd"]
+bg_color = Color(0.054902, 0.462745, 0.878431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kljoo")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_skapt")
+
+[node name="LogInContainer" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -267.5
+offset_right = 235.0
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0kdhm")
+
+[node name="SignUpText" type="Label" parent="Background/LogInContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 21.0
+offset_right = 59.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 30
+text = "Sign Up"
+
+[node name="InputContainer" type="VBoxContainer" parent="Background/LogInContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -178.0
+offset_right = 195.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Username" type="LineEdit" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.784314)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_gurh5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kljoo")
+placeholder_text = "Username"
+
+[node name="Email" type="LineEdit" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.784314)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_g3fwo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n38k3")
+placeholder_text = "Email"
+
+[node name="Password" type="LineEdit" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.784314)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_8bxgp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a5wv0")
+placeholder_text = "Password"
+secret = true
+
+[node name="ConfirmPassword" type="LineEdit" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.784314)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_cpoke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ijdwd")
+placeholder_text = "Confirm password"
+secret = true
+
+[node name="CreateAccountButton" type="Button" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_c64kw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_c64kw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r2nyb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c64kw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c64kw")
+text = "Create Account"
+
+[node name="BackButton" type="Button" parent="Background/LogInContainer/InputContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n38k3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_f2nbp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2nbp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gjtbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f2nbp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2nbp")
+text = "Back"
+
+[node name="GameLogo" type="TextureRect" parent="Background/LogInContainer"]
+modulate = Color(1, 1, 1, 0.960784)
+z_index = 10
+layout_mode = 0
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 158.0
+offset_bottom = 126.0
+texture = ExtResource("2_h1pxh")
+expand_mode = 1
+
+[connection signal="pressed" from="Background/LogInContainer/InputContainer/CreateAccountButton" to="." method="_on_create_account_button_pressed"]
+[connection signal="pressed" from="Background/LogInContainer/InputContainer/BackButton" to="." method="_on_button_pressed"]

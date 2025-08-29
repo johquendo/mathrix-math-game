@@ -1,0 +1,454 @@
+[gd_scene load_steps=20 format=3 uid="uid://boatdpcy35yen"]
+
+[ext_resource type="Script" uid="uid://dskct3u17yukd" path="res://Godot script/Scenes Script/home_page_main.gd" id="1_mykhn"]
+[ext_resource type="FontFile" uid="uid://docxxo2smmwtj" path="res://Fonts/Helvetica-Bold.ttf" id="2_mykhn"]
+[ext_resource type="FontFile" uid="uid://cmqyf6t67qmpu" path="res://Fonts/Gildeon.otf" id="2_xusl2"]
+[ext_resource type="PackedScene" uid="uid://6mkg2rpb6p4s" path="res://Scenes/shop.tscn" id="3_mykhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w63dr"]
+bg_color = Color(0, 0.0352941, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fscwk"]
+bg_color = Color(0, 0.113725, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4r40"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxujh"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du886"]
+bg_color = Color(0.291859, 0.605405, 0.990986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvybl"]
+bg_color = Color(0.0392157, 0.431373, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mykhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xusl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxg6n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw775"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d120"]
+
+[sub_resource type="Theme" id="Theme_w1xlq"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_mykhn")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_xusl2")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_lxg6n")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_vw775")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_2d120")
+
+[sub_resource type="Theme" id="Theme_mykhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1xlq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86lx5"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mykhn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w63dr")
+
+[node name="right_container" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 952.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Panel" type="Panel" parent="right_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fscwk")
+
+[node name="left_container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 648.0
+
+[node name="Panel" type="Panel" parent="left_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fscwk")
+
+[node name="middle container" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 16.0
+offset_right = 927.0
+offset_bottom = 624.0
+
+[node name="whiteboardcontainer" type="Control" parent="middle container"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="middle container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4r40")
+
+[node name="main" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 36.0
+offset_right = 190.0
+offset_bottom = 227.0
+scale = Vector2(1, 1.5)
+theme_override_constants/separation = 15
+
+[node name="profile" type="Button" parent="main"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxujh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du886")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvybl")
+action_mode = 0
+text = "P R O F I L E"
+
+[node name="shop" type="Button" parent="main"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxujh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du886")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvybl")
+action_mode = 0
+text = "S H O P"
+
+[node name="inventory" type="Button" parent="main"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxujh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du886")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvybl")
+action_mode = 0
+text = "I N V E N T O R Y"
+
+[node name="leaderboards" type="Button" parent="main"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxujh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du886")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvybl")
+action_mode = 0
+text = "L E A D E R B O A R D S"
+
+[node name="settings" type="Button" parent="main"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 22
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxujh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_du886")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvybl")
+action_mode = 0
+text = "S E T T I N G S"
+
+[node name="settings" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_setting" type="Button" parent="settings"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="profile" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_profile" type="Button" parent="profile"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="inventory" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_inventory" type="Button" parent="inventory"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="leaderboards" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 47.0
+offset_right = 890.0
+offset_bottom = 585.0
+
+[node name="back_leaderboards" type="Button" parent="leaderboards"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="scroll" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(185, 464)
+layout_mode = 2
+offset_left = 961.0
+offset_top = 97.0
+offset_right = 1146.0
+offset_bottom = 561.0
+theme = SubResource("Theme_w1xlq")
+
+[node name="playerboard" type="VBoxContainer" parent="scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="scroll/playerboard"]
+layout_mode = 2
+text = "Player1 #1234"
+
+[node name="p1" type="Button" parent="scroll/playerboard"]
+custom_minimum_size = Vector2(100, 85)
+layout_mode = 2
+theme = SubResource("Theme_mykhn")
+theme_override_colors/icon_hover_pressed_color = Color(0.572988, 0.572988, 0.572988, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1xlq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_86lx5")
+
+[node name="Label2" type="Label" parent="scroll/playerboard"]
+layout_mode = 2
+text = "Player 2#1234"
+
+[node name="p2" type="Button" parent="scroll/playerboard"]
+custom_minimum_size = Vector2(100, 85)
+layout_mode = 2
+theme = SubResource("Theme_mykhn")
+theme_override_colors/icon_hover_pressed_color = Color(0.572988, 0.572988, 0.572988, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1xlq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_86lx5")
+
+[node name="Label3" type="Label" parent="scroll/playerboard"]
+layout_mode = 2
+text = "Player3 #1234"
+
+[node name="p3" type="Button" parent="scroll/playerboard"]
+custom_minimum_size = Vector2(100, 85)
+layout_mode = 2
+theme = SubResource("Theme_mykhn")
+theme_override_colors/icon_hover_pressed_color = Color(0.572988, 0.572988, 0.572988, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1xlq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_86lx5")
+
+[node name="Label4" type="Label" parent="scroll/playerboard"]
+layout_mode = 2
+text = "Player4 #1234"
+
+[node name="p4" type="Button" parent="scroll/playerboard"]
+custom_minimum_size = Vector2(100, 85)
+layout_mode = 2
+theme = SubResource("Theme_mykhn")
+theme_override_colors/icon_hover_pressed_color = Color(0.572988, 0.572988, 0.572988, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1xlq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_86lx5")
+
+[node name="Label5" type="Label" parent="scroll/playerboard"]
+layout_mode = 2
+text = "Player 5#1234"
+
+[node name="p5" type="Button" parent="scroll/playerboard"]
+custom_minimum_size = Vector2(100, 85)
+layout_mode = 2
+theme = SubResource("Theme_mykhn")
+theme_override_colors/icon_hover_pressed_color = Color(0.572988, 0.572988, 0.572988, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1xlq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_86lx5")
+
+[node name="player 1" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 274.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 636.0
+
+[node name="back_p1" type="Button" parent="player 1"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="player 2" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 274.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 636.0
+
+[node name="back_p2" type="Button" parent="player 2"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="player 3" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 274.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 636.0
+
+[node name="back_p3" type="Button" parent="player 3"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="player 4" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 274.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 636.0
+
+[node name="back_p4" type="Button" parent="player 4"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="player 5" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 274.0
+offset_top = 98.0
+offset_right = 890.0
+offset_bottom = 636.0
+
+[node name="back_p5" type="Button" parent="player 5"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 2.0
+offset_right = 613.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_mykhn")
+text = "back"
+
+[node name="Shop" parent="." instance=ExtResource("3_mykhn")]
+layout_mode = 1
+
+[node name="CurrencyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 327.0
+offset_right = 88.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("2_xusl2")
+theme_override_font_sizes/font_size = 35
+
+[node name="BoardTools" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 572.0
+offset_right = 174.0
+offset_bottom = 612.0
+
+[node name="EraserToolButton" type="Button" parent="BoardTools"]
+layout_mode = 2
+text = "Eraser"
+
+[node name="PenToolButton" type="Button" parent="BoardTools"]
+layout_mode = 2
+text = "Pen"
+
+[node name="TextToolButton" type="Button" parent="BoardTools"]
+layout_mode = 2
+text = "Text"
+
+[connection signal="button_down" from="main/profile" to="." method="_on_profile_button_down"]
+[connection signal="button_down" from="main/shop" to="." method="_on_shop_button_down"]
+[connection signal="button_down" from="main/inventory" to="." method="_on_inventory_button_down"]
+[connection signal="button_down" from="main/leaderboards" to="." method="_on_leaderboards_button_down"]
+[connection signal="button_down" from="main/settings" to="." method="_on_settings_button_down"]
+[connection signal="button_down" from="settings/back_setting" to="." method="_on_backk_button_down"]
+[connection signal="button_down" from="profile/back_profile" to="." method="_on_back_profile_button_down"]
+[connection signal="button_down" from="inventory/back_inventory" to="." method="_on_back_inventory_button_down"]
+[connection signal="button_down" from="leaderboards/back_leaderboards" to="." method="_on_back_leaderboards_button_down"]
+[connection signal="button_down" from="scroll/playerboard/p1" to="." method="_on_p_1_button_down"]
+[connection signal="button_down" from="scroll/playerboard/p2" to="." method="_on_p_2_button_down"]
+[connection signal="button_down" from="scroll/playerboard/p3" to="." method="_on_p_3_button_down"]
+[connection signal="button_down" from="scroll/playerboard/p4" to="." method="_on_p_4_button_down"]
+[connection signal="button_down" from="scroll/playerboard/p5" to="." method="_on_p_5_button_down"]
+[connection signal="button_down" from="player 1/back_p1" to="." method="_on_back_p_1_button_down"]
+[connection signal="button_down" from="player 2/back_p2" to="." method="_on_back_p_2_button_down"]
+[connection signal="pressed" from="player 2/back_p2" to="." method="_on_back_p_2_pressed"]
+[connection signal="button_down" from="player 3/back_p3" to="." method="_on_back_p_3_button_down"]
+[connection signal="button_down" from="player 4/back_p4" to="." method="_on_back_p_4_button_down"]
+[connection signal="button_down" from="player 5/back_p5" to="." method="_on_back_p_5_button_down"]

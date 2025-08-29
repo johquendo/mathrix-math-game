@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://k66orv3jcaug"]
+
+[ext_resource type="Script" uid="uid://s65l6t52rf3q" path="res://Godot script/Scenes Script/text_tool.gd" id="1_x1xgy"]
+
+[node name="TextToolContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x1xgy")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ResizeHandle" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
