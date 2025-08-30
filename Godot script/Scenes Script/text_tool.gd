@@ -14,6 +14,7 @@ var resize_handle_size = 12
 signal text_size_changed(text_instance)
 signal edit_requested(text_instance)
 signal edit_finished(text_instance)
+signal delete_requested(text_instance)  # Add this signal
 
 @onready var text_edit = $TextEdit
 @onready var resize_handle = $ResizeHandle
@@ -80,42 +81,42 @@ func _gui_input(event):
 func _on_text_edit_gui_input(event):
 	if not is_editing:
 		return
-		
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			# Start dragging when clicking on text edit (but not on resize handle)
 			var local_pos = event.position
 			var resize_handle_rect = Rect2(resize_handle.position, resize_handle.size)
-			
+
 			if not resize_handle_rect.has_point(local_pos):
 				is_dragging = true
 				drag_offset = event.global_position - global_position
 				get_viewport().set_input_as_handled()
-		
+
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			is_dragging = false
-	
+
 	if event is InputEventMouseMotion and is_dragging:
 		var new_global_position = event.global_position - drag_offset
-		
+
 		# Constrain movement to canvas boundaries
 		var constrained_position = _constrain_to_canvas_bounds(new_global_position)
 		global_position = constrained_position
-		
+
 		get_viewport().set_input_as_handled()
 
 func _constrain_to_canvas_bounds(proposed_global_position):
 	# Get the canvas boundaries from the parent whiteboard
 	var canvas_bounds = Rect2(Vector2.ZERO, Vector2(706, 608))  # Match your whiteboard size
 	var whiteboard_global_position = Vector2(221, 16)  # Match your whiteboard position
-	
+
 	# Convert to local canvas coordinates
 	var local_bounds = Rect2(whiteboard_global_position, canvas_bounds.size)
-	
+
 	# Constrain the text box position to stay within canvas bounds
 	var constrained_x = clamp(proposed_global_position.x, local_bounds.position.x, local_bounds.end.x - size.x)
 	var constrained_y = clamp(proposed_global_position.y, local_bounds.position.y, local_bounds.end.y - size.y)
-	
+
 	return Vector2(constrained_x, constrained_y)
 
 func _get_max_size():
@@ -123,17 +124,17 @@ func _get_max_size():
 	var canvas_bounds = Rect2(Vector2.ZERO, Vector2(706, 608))
 	var whiteboard_global_position = Vector2(221, 16)
 	var local_bounds = Rect2(whiteboard_global_position, canvas_bounds.size)
-	
+
 	# Calculate available space in each direction
 	var max_width = local_bounds.end.x - global_position.x
 	var max_height = local_bounds.end.y - global_position.y
-	
+
 	return Vector2(max_width, max_height)
 
 func _on_resize_handle_gui_input(event):
 	if not is_editing:
 		return
-		
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			is_resizing = true
@@ -141,24 +142,24 @@ func _on_resize_handle_gui_input(event):
 			original_size = size
 			original_position = global_position
 			get_viewport().set_input_as_handled()
-		
+
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			is_resizing = false
-	
+
 	if event is InputEventMouseMotion and is_resizing:
 		var delta = event.global_position - resize_start
-		
+
 		# Calculate new size based on resize direction
 		var new_size = Vector2(
 			max(original_size.x + delta.x, custom_minimum_size.x),
 			max(original_size.y + delta.y, custom_minimum_size.y)
 		)
-		
+
 		# Constrain size to canvas boundaries
 		var max_size = _get_max_size()
 		new_size.x = min(new_size.x, max_size.x)
 		new_size.y = min(new_size.y, max_size.y)
-		
+
 		# Apply new size
 		size = new_size
 		text_edit.size = new_size
@@ -171,7 +172,8 @@ func _on_resize_handle_gui_input(event):
 func create_context_menu():
 	context_menu = PopupMenu.new()
 	context_menu.add_item("Edit", 0)
-	context_menu.set_size(Vector2(80, 30))
+	context_menu.add_item("Delete", 1)  # Add Delete option
+	context_menu.set_size(Vector2(100, 60))  # Make it taller to fit both options
 	context_menu.id_pressed.connect(_on_context_menu_id_pressed)
 	context_menu.popup_hide.connect(_on_context_menu_hidden)
 	add_child(context_menu)
@@ -179,6 +181,9 @@ func create_context_menu():
 func _on_context_menu_id_pressed(id):
 	if id == 0:  # Edit
 		request_edit()
+	elif id == 1:  # Delete
+		# Emit signal to request deletion
+		emit_signal("delete_requested", self)
 
 func _on_context_menu_hidden():
 	context_menu_visible = false
@@ -188,11 +193,11 @@ func show_context_menu():
 	# Use a safe approach to check if parent scene has active text
 	var has_active_text = false
 	var parent = get_parent()
-	
+
 	# Safely check if parent has active text instance
 	if parent and parent.has_method("has_active_text_instance"):
 		has_active_text = parent.has_active_text_instance()
-	
+
 	if not has_active_text:
 		context_menu.position = get_global_mouse_position()
 		context_menu.popup()
@@ -211,12 +216,12 @@ func start_editing():
 	text_edit.grab_focus()
 	resize_handle.visible = true
 	mouse_default_cursor_shape = Control.CURSOR_IBEAM
-	
+
 	# Notify parent about edit request safely
 	var parent = get_parent()
 	if parent and parent.has_method("_on_text_edit_requested"):
 		parent._on_text_edit_requested(self)
-	
+
 	queue_redraw()
 
 func finish_editing():
@@ -229,12 +234,12 @@ func finish_editing():
 	text_edit.editable = false
 	resize_handle.visible = false
 	mouse_default_cursor_shape = Control.CURSOR_ARROW
-	
+
 	# Notify parent about edit finished safely
 	var parent = get_parent()
 	if parent and parent.has_method("_on_text_edit_finished"):
 		parent._on_text_edit_finished(self)
-	
+
 	emit_signal("edit_finished", self)
 	queue_redraw()
 
@@ -251,14 +256,13 @@ func _draw():
 		# Check if we should draw gray border (text mode)
 		var should_draw_gray = false
 		var parent = get_parent()
-		
+
 		# Safely check if parent is in text mode
 		if parent and parent.has_method("get_current_tool"):
 			var current_tool = parent.get_current_tool()
 			# Assuming 1 is TEXT mode (you may need to adjust this)
 			should_draw_gray = current_tool == 1
-		
+
 		if should_draw_gray:
 			# Draw a subtle border when not editing but in text mode
 			draw_rect(Rect2(Vector2.ZERO, size), Color.GRAY, false, 1.0)
-#testing

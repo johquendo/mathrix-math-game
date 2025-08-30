@@ -53,7 +53,7 @@ func _ready():
 
 	# Initialize canvas for bitmap drawing
 	var viewport_size = get_viewport_rect().size
-	canvas_image = Image.create(viewport_size.x,viewport_size.y, false, Image.FORMAT_RGBA8)
+	canvas_image = Image.create(viewport_size.x, viewport_size.y, false, Image.FORMAT_RGBA8)
 	canvas_image.fill(Color.TRANSPARENT)
 	canvas_texture = ImageTexture.create_from_image(canvas_image)
 
@@ -367,6 +367,23 @@ func handle_right_click_text_tool(click_position):
 
 	get_viewport().set_input_as_handled()
 
+# Function to delete a text instance
+func delete_text_instance(text_instance):
+	# Remove from our tracking array
+	var index = text_instances.find(text_instance)
+	if index != -1:
+		text_instances.remove_at(index)
+	
+	# If this was the active text instance, clear the reference
+	if active_text_instance == text_instance:
+		active_text_instance = null
+	
+	# Remove the node from the scene
+	text_instance.queue_free()
+	
+	# Force redraw to update the display
+	queue_redraw()
+
 func _gui_input(event):
 	# If answer input is active, don't process drawing events
 	if answer_input_active:
@@ -560,6 +577,9 @@ func add_text(position):
 		new_text.edit_requested.connect(_on_text_edit_requested)
 	if has_method("_on_text_edit_finished"):
 		new_text.edit_finished.connect(_on_text_edit_finished)
+	# Connect the delete requested signal
+	if has_method("_on_text_delete_requested"):
+		new_text.delete_requested.connect(_on_text_delete_requested)
 
 	text_instances.append(new_text)
 
@@ -570,6 +590,9 @@ func add_text(position):
 	active_text_instance = new_text
 	# Start editing immediately
 	new_text.start_editing()
+
+func _on_text_delete_requested(text_instance):
+	delete_text_instance(text_instance)
 
 func _on_text_size_changed(text_instance):
 	# Adjust other elements if needed
