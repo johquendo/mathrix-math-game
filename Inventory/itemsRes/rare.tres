@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c87r5qwvaryix"]
+
+[ext_resource type="Script" uid="uid://cvarfwjt47yl4" path="res://Inventory/ItemData.gd" id="1_1d05d"]
+[ext_resource type="Texture2D" uid="uid://fjnfc5k2bg6" path="res://Inventory/itemsRes/Item_UI/Rare.png" id="2_epwku"]
+
+[resource]
+script = ExtResource("1_1d05d")
+id = "rare"
+name = "Rare"
+texture = ExtResource("2_epwku")
+type = 0
+description = "asrefhsvdfdgfhgjh"
+stackable = true
+max_stack_size = 64
+metadata/_custom_type_script = "uid://cvarfwjt47yl4"

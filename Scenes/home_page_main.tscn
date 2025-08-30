@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://boatdpcy35yen"]
+[gd_scene load_steps=21 format=3 uid="uid://boatdpcy35yen"]
 
 [ext_resource type="Script" uid="uid://dskct3u17yukd" path="res://Godot script/Scenes Script/home_page_main.gd" id="1_mykhn"]
 [ext_resource type="FontFile" uid="uid://docxxo2smmwtj" path="res://Fonts/Helvetica-Bold.ttf" id="2_mykhn"]
 [ext_resource type="FontFile" uid="uid://cmqyf6t67qmpu" path="res://Fonts/Gildeon.otf" id="2_xusl2"]
+[ext_resource type="Script" uid="uid://bjfw55edwe88r" path="res://Inventory/panel_container.gd" id="3_lxg6n"]
 [ext_resource type="PackedScene" uid="uid://6mkg2rpb6p4s" path="res://Scenes/shop.tscn" id="3_mykhn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w63dr"]
@@ -210,6 +211,7 @@ offset_left = 274.0
 offset_top = 47.0
 offset_right = 890.0
 offset_bottom = 585.0
+script = ExtResource("3_lxg6n")
 
 [node name="back_inventory" type="Button" parent="inventory"]
 layout_mode = 2
@@ -219,6 +221,11 @@ offset_right = 613.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_mykhn")
 text = "back"
+
+[node name="GridContainerINV" type="GridContainer" parent="inventory"]
+unique_name_in_owner = true
+layout_mode = 0
+columns = 4
 
 [node name="leaderboards" type="Panel" parent="."]
 visible = false

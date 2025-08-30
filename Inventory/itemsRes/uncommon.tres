@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://8xnqi1yxl1mp"]
+
+[ext_resource type="Script" uid="uid://cvarfwjt47yl4" path="res://Inventory/ItemData.gd" id="1_xbihc"]
+[ext_resource type="Texture2D" uid="uid://bu2b0dh701cm" path="res://Inventory/itemsRes/Item_UI/Uncommon.png" id="2_md5yv"]
+
+[resource]
+script = ExtResource("1_xbihc")
+id = "uncommon"
+name = "Uncommon"
+texture = ExtResource("2_md5yv")
+type = 0
+description = "khjgfbdf"
+stackable = true
+max_stack_size = 64
+metadata/_custom_type_script = "uid://cvarfwjt47yl4"
