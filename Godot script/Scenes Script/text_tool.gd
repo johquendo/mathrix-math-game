@@ -228,10 +228,12 @@ func finish_editing():
 	is_editing = false
 	is_dragging = false
 	is_resizing = false
-	# Disable editing
 	text_edit.focus_mode = FOCUS_NONE
 	text_edit.caret_blink = false
 	text_edit.editable = false
+	
+	text_edit.add_theme_color_override("font_readonly_color", Color.BLACK)
+	
 	resize_handle.visible = false
 	mouse_default_cursor_shape = Control.CURSOR_ARROW
 
