@@ -6,7 +6,7 @@ extends Control
 @onready var confirm_field: LineEdit = $Background/LogInContainer/InputContainer/ConfirmPassword
 @onready var create_button: Button = $Background/LogInContainer/InputContainer/CreateAccountButton
 @onready var back_button: Button = $Background/LogInContainer/InputContainer/BackButton
-@onready var signup_text: Label = $Background/LogInContainer/SignUpText
+@onready var error_text: Label = $Background/ErrorMessage
 
 var signup_username: String = ""  # store username temporarily
 
@@ -26,31 +26,47 @@ func _on_enter_pressed(_text=""):
 	_on_CreateButton_pressed()
 
 func show_error(message: String):
-	signup_text.text = message
-	signup_text.add_theme_color_override("font_color", Color.RED)
+	error_text.text = message
+	error_text.add_theme_color_override("font_color", Color.RED)
 
 func show_success(message: String):
-	signup_text.text = message
-	signup_text.add_theme_color_override("font_color", Color.GREEN)
+	error_text.text = message
+	error_text.add_theme_color_override("font_color", Color.GREEN)
 
 func clear_message():
-	signup_text.text = ""
-	signup_text.remove_theme_color_override("font_color")
+	error_text.text = ""
+	error_text.remove_theme_color_override("font_color")
+	
+func disable_fields():
+	username_field.editable = false
+	email_field.editable = false
+	password_field.editable = false
+	confirm_field.editable = false
+
+func enable_fields():
+	username_field.editable = true
+	email_field.editable = true
+	password_field.editable = true
+	confirm_field.editable = true
 
 func _on_CreateButton_pressed() -> void:
 	signup_username = username_field.text.strip_edges()
 	var email = email_field.text.strip_edges()
 	var password = password_field.text
 	var confirm = confirm_field.text
+	
+	disable_fields()
 
 	clear_message()
 
 	if signup_username.is_empty() or email.is_empty() or password.is_empty() or confirm.is_empty():
 		show_error("All fields are required.")
+		enable_fields()
 		return
 
 	if password != confirm:
 		show_error("Passwords do not match.")
+		enable_fields()
 		return
 
 	show_success("Creating account...")
@@ -81,6 +97,9 @@ func _on_signup_success(auth_info: Dictionary) -> void:
 
 func _on_signup_error(code: int, message: String) -> void:
 	show_error("Error: %s" % message)
+	enable_fields()
+	await get_tree().create_timer(1.5).timeout
+	clear_message()
 
 func _on_BackButton_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/log_in_page.tscn")
